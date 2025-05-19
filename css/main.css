@@ -9,30 +9,40 @@ html {
     font-family: sans-serif;
 }
 
+.home-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
 
-#cover-page {
+
+.container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.page {
+    scroll-snap-align: start;
+    width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    background: "#fafafa";
+    align-items: center;
 }
 
-.cover-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+
+#about {
+    background-color: blue;
 }
 
-.cover-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+#links {
+    background-color: red;
 }
 
-.cover-content button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-}
 
 .magnet-scene {
     position: relative;
