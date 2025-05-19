@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const magRect = magnet.getBoundingClientRect();
         const head = {
             x: magRect.left + magRect.width / 2,
-            y: magRect.top + magRect.height
+            y: magRect.top + magRect.height / 2
         };
 
         collectables.forEach(item => {
@@ -47,17 +47,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     collected.push({
                         element: item,
                         offsetX: diffX,
-                        offsetY: diffY
+                        offsetY: diffY,
+                        t: performance.now()
                     });
                 }
 
             }
         });
 
-        collected.forEach(({element, offsetX, offsetY}) => {
+        collected.forEach(({element, offsetX, offsetY, t}) => {
             element.style.position = "fixed";
-            element.style.left = `${head.x + offsetX}px`;
-            element.style.top = `${head.y + offsetY}px`;
+            const dist = Math.hypot(offsetX, offsetY);
+            const dt = Math.min((performance.now() - t) / 1000, 1);
+
+            const easeT = Math.min(Math.sin((dt * Math.PI) / 2), 0.6);
+            const currX = offsetX * (1 - easeT);
+            const currY = offsetY * (1 - easeT);
+
+            element.style.left = `${head.x + currX}px`;
+            element.style.top = `${head.y + currY}px`;
             element.style.transition = "none";
         });
 
