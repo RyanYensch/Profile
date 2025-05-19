@@ -34,16 +34,7 @@ html {
     cursor: pointer;
 }
 
-.magnet-scene {
-    position: relative;
-    width: 80%;
-    height: 60%;
-    border: 2px dashed black;
-    margin-top: 2rem;
-    overflow: hidden;
-}
-
-.magnet {
+#magnet {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -53,6 +44,54 @@ html {
     user-select: none;
 }
 
-.magnet:active {
+#magnet:active {
     cursor: grabbing;
 }
+
+
+.cover-scene {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin: auto;
+    overflow: visible;
+    background: "#fafafa";
+}
+
+.collectable {
+    position: absolute;
+    font-size: 2rem;
+    user-select: none;
+    transition: all 0.6s ease-in-out;
+}
+
+.pendulum {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: top center;
+  }
+  
+  .pendulum::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 200px;
+    background: #333;
+    margin: 0 auto;
+  }
+  
+  #magnet {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    cursor: grab;
+    user-select: none;
+  }
+
+  #magnet:active {
+    cursor: grabbing;
+  }
+  
