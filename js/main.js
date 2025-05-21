@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const magnet = document.getElementById("magnet");
     const scene = document.querySelector(".magnet-scene");
     const tabs = document.querySelectorAll(".tab")
@@ -42,33 +42,54 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     function checkTabs() {
+        const sceneRect  = scene.getBoundingClientRect();
         const magnetRect = magnet.getBoundingClientRect();
-        const x = magnetRect.left + magnetRect.width / 2;
-        const y = magnetRect.top + magnetRect.height / 2;
+        const x = magnetRect.left + magnetRect.width  / 2;
+        const y = magnetRect.top  + magnetRect.height / 2;
+
+        let closest = { tab: null, dist: Infinity, isLeft: false };
 
         tabs.forEach(tab => {
-            const tabRect = tab.getBoundingClientRect();
+            const labelRect = tab.querySelector(".tab-label").getBoundingClientRect();
+            const isLeft    = tab.classList.contains("tab-about") || tab.classList.contains("tab-projects");
 
-            let tabEdgeX;
-            const tabEdgeY = tabRect.top + tabRect.height / 2;
-
-            if (tab.classList.contains("tab-about") || tab.classList.contains("tab-projects")) {
-                tabEdgeX = tabRect.left + tabRect.width;
+            let diffX;
+            if (isLeft) {
+                diffX = x - labelRect.right;
             } else {
-                tabEdgeX = tabRect.left;
+                diffX = labelRect.left - x;
             }
+            if (diffX <= 0) return;
 
-            const diffX = x - tabEdgeX;
-            const diffY = y - tabEdgeY;
-            const dist = Math.hypot(diffX, diffY);
+            const diffY = y - (labelRect.top + labelRect.height / 2);
+            const dist  = Math.hypot(diffX, diffY);
 
-            if (dist < 120) {
-                tab.classList.add("pulled");
+            if (dist < closest.dist) {
+                closest = {tab, dist, isLeft};
+            }
+        });
+
+        const GAP = -100;
+        const ACTIVATE_DIST = 500;
+
+        tabs.forEach(tab => {
+            const content   = tab.querySelector('.tab-content');
+            if (tab === closest.tab && closest.dist <= ACTIVATE_DIST) {
+                const labelRect = tab.querySelector('.tab-label').getBoundingClientRect();
+
+                let available;
+                if (closest.isLeft) {
+                    available = magnetRect.left - (labelRect.right + GAP);
+                } else {
+                    available = (labelRect.left - GAP) - magnetRect.right;
+                }
+                content.style.maxWidth = `${Math.max(0, available)}px`;
             } else {
-                tab.classList.remove("pulled");
+                content.style.maxWidth = '0';
             }
-        })
+        });
     }
+
 
     function magnetOrientation() {
         const sceneRect = scene.getBoundingClientRect();

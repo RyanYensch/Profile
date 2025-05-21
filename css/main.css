@@ -50,7 +50,8 @@ html {
     height: 60%;
     border: 2px dashed black;
     margin-top: 2rem;
-    overflow: visible;
+    overflow: hidden;
+    z-index: 10;
 }
 
 .magnet {
@@ -62,6 +63,7 @@ html {
     cursor: grab;
     user-select: none;
     transition: transform 0.1s linear;
+    z-index: 1000;
 }
 
 .magnet:active {
@@ -70,63 +72,68 @@ html {
 
 .tab {
     position: absolute;
-    width: auto;
-    max-width: 200px;
-    overflow: visible;
     display: flex;
-    align-items: center;
-    cursor: default;
+    align-items: stretch;
+    height: 30%;
+    overflow: visible;
+    transition: transform 0.2s ease;
+    z-index: 1;
 }
 
 .tab-label {
+    position: relative;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
     padding: 1rem;
     background: #fafafa;
     border: 1px solid black;
     white-space: nowrap;
     z-index: 2;
+    flex: 0 0 auto;
 }
 
 .tab-content {
-    width: 0;
-    opacity: 0;
+    position: relative;
+    max-width: 0px;
+    opacity: 1;
     overflow: hidden;
-    transition: width 0.4s ease, opacity 0.4s ease;
+    transition: max-width 0.2s ease, opacity 0.2s ease;
     background: #fafafa;
+    border: 1px solid black;
     border-left: none;
-    border-right: 1px solid black;
     padding: 1rem;
+    flex: 0 0 auto;
 }
 
 .tab-about {
-    top: 30%;
+    top: 10%;
     left: 0;
-    flex-direction: row;
+    flex-direction: row-reverse;
+}
+.tab-projects {
+    bottom: 10%;
+    left: 0;
+    flex-direction: row-reverse;
 }
 
 .tab-hobbies {
-    top: 30%;
+    top: 10%;
     right: 0;
-    flex-direction: row-reverse;
-}
+    flex-direction: row;
 
-.tab-projects {
-    bottom: 30%;
-    left: 0;
+}
+.tab-skills {
+    bottom: 10%;
+    right: 0;
     flex-direction: row;
 }
 
-.tab-skills {
-    bottom: 30%;
-    right: 0;
-    flex-direction: row-reverse;
-}
-
 .tab.pulled {
-    width: 180px;
+    width: 40%;
     opacity: 1;
 }
 
 .tab.pulled .tab-content {
-  width: 180px;     /* adjust this to how wide your content area should be */
+  width: 40%;
   opacity: 1;
 }
