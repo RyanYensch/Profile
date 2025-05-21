@@ -47,7 +47,7 @@ html {
 .magnet-scene {
     position: relative;
     width: 80%;
-    height: 60%;
+    height: 80%;
     border: 2px dashed black;
     margin-top: 2rem;
     overflow: hidden;
@@ -74,8 +74,9 @@ html {
     position: absolute;
     display: flex;
     align-items: stretch;
-    height: 30%;
-    overflow: visible;
+    height: 40%;
+    max-width: 40%;
+    overflow: hidden;
     transition: transform 0.2s ease;
     z-index: 1;
 }
@@ -96,7 +97,8 @@ html {
     position: relative;
     max-width: 0px;
     opacity: 1;
-    overflow: hidden;
+    overflow: visible;
+    text-wrap: wrap;
     transition: max-width 0.2s ease, opacity 0.2s ease;
     background: #fafafa;
     border: 1px solid black;
@@ -106,24 +108,24 @@ html {
 }
 
 .tab-about {
-    top: 10%;
+    top: 5%;
     left: 0;
     flex-direction: row-reverse;
 }
 .tab-projects {
-    bottom: 10%;
+    bottom: 5%;
     left: 0;
     flex-direction: row-reverse;
 }
 
 .tab-hobbies {
-    top: 10%;
+    top: 5%;
     right: 0;
     flex-direction: row;
 
 }
 .tab-skills {
-    bottom: 10%;
+    bottom: 5%;
     right: 0;
     flex-direction: row;
 }

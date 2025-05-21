@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        const GAP = -100;
+        const GAP = -1000;
         const ACTIVATE_DIST = 500;
 
         tabs.forEach(tab => {
