@@ -70,51 +70,63 @@ html {
 
 .tab {
     position: absolute;
-    width: 200px;
-    padding: 1rem;
-    background-color: #fafafa;
-    border: 1px solid black;
-    border-radius: 0 4px 4px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    opacity: 0.3;
+    width: auto;
+    max-width: 200px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
     cursor: default;
+}
+
+.tab-label {
+    padding: 1rem;
+    background: #fafafa;
+    border: 1px solid black;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.tab-content {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: width 0.4s ease, opacity 0.4s ease;
+    background: #fafafa;
+    border-left: none;
+    border-right: 1px solid black;
+    padding: 1rem;
 }
 
 .tab-about {
     top: 30%;
-    left: -180px;
-    transform: translateX(0);
+    left: 0;
+    flex-direction: row;
 }
 
 .tab-hobbies {
     top: 30%;
-    right: -180px;
-    transform: translateX(0);
-    border-radius: 4px 0 0 4px;
+    right: 0;
+    flex-direction: row-reverse;
 }
 
 .tab-projects {
     bottom: 30%;
-    left: -180px;
-    transform: translateX(0);
+    left: 0;
+    flex-direction: row;
 }
 
 .tab-skills {
     bottom: 30%;
-    right: -180px;
-    transform: translateX(0);
+    right: 0;
+    flex-direction: row-reverse;
 }
 
 .tab.pulled {
+    width: 180px;
     opacity: 1;
-    transform: translateX(180px);
 }
 
-.tab-hobbies.pulled { 
-    transform: translateX(-180px); 
-}
-
-.tab-skills.pulled  { 
-    transform: translateX(-180px); 
+.tab.pulled .tab-content {
+  width: 180px;     /* adjust this to how wide your content area should be */
+  opacity: 1;
 }
