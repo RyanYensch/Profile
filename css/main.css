@@ -47,10 +47,11 @@ html {
 .magnet-scene {
     position: relative;
     width: 80%;
-    height: 60%;
+    height: 80%;
     border: 2px dashed black;
     margin-top: 2rem;
     overflow: hidden;
+    z-index: 10;
 }
 
 .magnet {
@@ -61,8 +62,80 @@ html {
     font-size: 3rem;
     cursor: grab;
     user-select: none;
+    transition: transform 0.1s linear;
+    z-index: 1000;
 }
 
 .magnet:active {
     cursor: grabbing;
+}
+
+.tab {
+    position: absolute;
+    display: flex;
+    align-items: stretch;
+    height: 40%;
+    max-width: 40%;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    z-index: 1;
+}
+
+.tab-label {
+    position: relative;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    padding: 1rem;
+    background: #fafafa;
+    border: 1px solid black;
+    white-space: nowrap;
+    z-index: 2;
+    flex: 0 0 auto;
+}
+
+.tab-content {
+    position: relative;
+    max-width: 0px;
+    opacity: 1;
+    overflow: visible;
+    text-wrap: wrap;
+    transition: max-width 0.2s ease, opacity 0.2s ease;
+    background: #fafafa;
+    border: 1px solid black;
+    border-left: none;
+    padding: 1rem;
+    flex: 0 0 auto;
+}
+
+.tab-about {
+    top: 5%;
+    left: 0;
+    flex-direction: row-reverse;
+}
+.tab-projects {
+    bottom: 5%;
+    left: 0;
+    flex-direction: row-reverse;
+}
+
+.tab-hobbies {
+    top: 5%;
+    right: 0;
+    flex-direction: row;
+
+}
+.tab-skills {
+    bottom: 5%;
+    right: 0;
+    flex-direction: row;
+}
+
+.tab.pulled {
+    width: 40%;
+    opacity: 1;
+}
+
+.tab.pulled .tab-content {
+  width: 40%;
+  opacity: 1;
 }
