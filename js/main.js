@@ -36,14 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
         magnet.style.top = `${y}px`;
         magnet.style.transform = `none`;
 
-        checkTabs()
+        checkTabs();
+        magnetOrientation();
     }
     
 
     function checkTabs() {
-        const magentRect = magnet.getBoundingClientRect();
-        const x = magentRect.left + magentRect.width / 2;
-        const y = magentRect.top + magentRect.height / 2;
+        const magnetRect = magnet.getBoundingClientRect();
+        const x = magnetRect.left + magnetRect.width / 2;
+        const y = magnetRect.top + magnetRect.height / 2;
 
         tabs.forEach(tab => {
             const tabRect = tab.getBoundingClientRect();
@@ -67,6 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 tab.classList.remove("pulled");
             }
         })
+    }
+
+    function magnetOrientation() {
+        const sceneRect = scene.getBoundingClientRect();
+        const magnetRect = magnet.getBoundingClientRect();
+
+        const magnetCenter = magnetRect.left + magnetRect.width / 2;
+        const sceneCenter = sceneRect.left + sceneRect.width / 2;
+
+        if (magnetCenter <= sceneCenter) {
+            magnet.style.transform = "translate(-50%, -50%) rotate(0deg)";
+        } else {
+            magnet.style.transform = "translate(-50%, -50%) rotate(180deg)";
+        }
     }
 
     checkTabs();
