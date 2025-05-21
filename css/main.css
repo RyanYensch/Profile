@@ -61,6 +61,7 @@ html {
     font-size: 3rem;
     cursor: grab;
     user-select: none;
+    transition: transform 0.1s linear;
 }
 
 .magnet:active {
