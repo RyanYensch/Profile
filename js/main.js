@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const magnet = document.getElementById("magnet");
     const scene = document.querySelector(".magnet-scene");
+    const tabs = document.querySelectorAll(".tab")
+
     let offsetX, offsetY;
     let dragging =  false;
 
@@ -33,5 +35,39 @@ document.addEventListener('DOMContentLoaded', () => {
         magnet.style.left = `${x}px`;
         magnet.style.top = `${y}px`;
         magnet.style.transform = `none`;
+
+        checkTabs()
     }
+    
+
+    function checkTabs() {
+        const magentRect = magnet.getBoundingClientRect();
+        const x = magentRect.left + magentRect.width / 2;
+        const y = magentRect.top + magentRect.height / 2;
+
+        tabs.forEach(tab => {
+            const tabRect = tab.getBoundingClientRect();
+
+            let tabEdgeX;
+            const tabEdgeY = tabRect.top + tabRect.height / 2;
+
+            if (tab.classList.contains("tab-about") || tab.classList.contains("tab-projects")) {
+                tabEdgeX = tabRect.left + tabRect.width;
+            } else {
+                tabEdgeX = tabRect.left;
+            }
+
+            const diffX = x - tabEdgeX;
+            const diffY = y - tabEdgeY;
+            const dist = Math.hypot(diffX, diffY);
+
+            if (dist < 120) {
+                tab.classList.add("pulled");
+            } else {
+                tab.classList.remove("pulled");
+            }
+        })
+    }
+
+    checkTabs();
 });

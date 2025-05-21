@@ -50,7 +50,7 @@ html {
     height: 60%;
     border: 2px dashed black;
     margin-top: 2rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .magnet {
@@ -65,4 +65,55 @@ html {
 
 .magnet:active {
     cursor: grabbing;
+}
+
+.tab {
+    position: absolute;
+    width: 200px;
+    padding: 1rem;
+    background-color: #fafafa;
+    border: 1px solid black;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.3;
+    cursor: default;
+}
+
+.tab-about {
+    top: 30%;
+    left: -180px;
+    transform: translateX(0);
+}
+
+.tab-hobbies {
+    top: 30%;
+    right: -180px;
+    transform: translateX(0);
+    border-radius: 4px 0 0 4px;
+}
+
+.tab-projects {
+    bottom: 30%;
+    left: -180px;
+    transform: translateX(0);
+}
+
+.tab-skills {
+    bottom: 30%;
+    right: -180px;
+    transform: translateX(0);
+}
+
+.tab.pulled {
+    opacity: 1;
+    transform: translateX(180px);
+}
+
+.tab-hobbies.pulled { 
+    transform: translateX(-180px); 
+}
+
+.tab-skills.pulled  { 
+    transform: translateX(-180px); 
 }
