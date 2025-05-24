@@ -61,7 +61,7 @@ html, body {
 }
 
 .toggle-group.right {
-    right: 25%;
+    left: 75%;
 }
 
 
@@ -112,7 +112,7 @@ html, body {
 }
 
 .panel.right {
-    right: 25%
+    left: 75%
 }
 
 .panel-down {
