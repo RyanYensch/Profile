@@ -1,21 +1,16 @@
-document.querySelectorAll(".magnet-icon").forEach(mag => {
-    mag.addEventListener("click", () => {
-        const target = mag.dataset.target;
-        const dir = mag.dataset.dir;
+document.querySelectorAll(".toggle-group").forEach(group => {
+    group.addEventListener("click", () => {
+        const target = group.dataset.target;
+        const dir = group.dataset.dir;
         const panel = document.getElementById(target);
-        const label = document.querySelector(`.label[data-target="${target}"]`);
         const panelHeight = panel.getBoundingClientRect().panelHeight;
+        const offset = (dir == "up") ? -panelHeight : panelHeight;
 
-        if (!panel.classList.contains("open")) {
-            panel.classList.add("open");
-            const shift = (dir == "up") ? -panelHeight : panelHeight;
-
-            mag.style.transform = `translateY(${shift}px) ${(dir == "down") ? "rotate(180deg)" : ""}`;
-            label.style.transform = `translateY(${shift}px)`;
+        panel.classList.toggle("open")
+        if (panel.classList.contains("open")) {
+            group.style.setProperty("--offset", `${offset}px`);
         } else {
-            panel.classList.remove("open");
-            mag.style.transform ="";
-            label.style.transform = "";
+            group.style.setProperty("--offset", "0px");
         }
         
     });
