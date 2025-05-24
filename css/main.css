@@ -43,13 +43,32 @@ html, body {
     font-size: 0.9rem;
 }
 
-
-.magnet-icon {
+.toggle-group {
     position: absolute;
+    top: 50%;
+    --offset: 0px;
+    transform: translateY(calc(-50% + var(--offset)));
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.toggle-group.left {
+    left: 25%;
+}
+
+.toggle-group.right {
+    right: 25%;
+}
+
+
+.magnet {
     width: 2.5rem;
     height: 2.5rem;
-    line-height: 2.5rem;
-    text-align: center;
+    display: flex;
     font-size: 2rem;
     background: #fafafa;
     border-radius: 50%;
@@ -57,47 +76,26 @@ html, body {
     cursor: pointer;
     user-select: none;
     transition: transform 0.5s ease;
+    margin-bottom: 0.5rem;
     z-index: 10;
 }
 
-.magnet-icon.left {
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.magnet-icon.right {
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%) rotate(180deg);
+.toggle-group.right .magnet {
+    transform: rotate(180deg);
 }
 
 .label {
-    position: absolute;
     font-size: 1rem;
     user-select: none;
-    transition: 0.5s ease;
-    z-index: 10;
 }
-
-.label.left {
-    left: 2rem;
-    top: calc(50% + 2.5rem + 0.5rem);
-}
-
-.label.right {
-    right: 2rem;
-    top: calc(50% - 2.5rem - 1.5rem);
-}
-
 
 
 .panel {
     position: absolute;
-    left: 2rem;
-    right: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
+    transform: translateX(-50%);
+    width: calc(50% - 4rem);
+    left: 50%;
+    max-width: 400px;
     background: #fafafa;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -108,17 +106,27 @@ html, body {
     z-index: 5;
 }
 
+
+.panel.left {
+    left: 25%;
+}
+
+.panel.right {
+    right: 25%
+}
+
 .panel-down {
     top: 0;
-    transform: translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
 }
 
 .panel-up {
     bottom: 0;
-    transform: translateY(100%);
+    transform: translateX(-50%) translateY(100%);
 }
 
 .panel.open {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
+    pointer-events: auto;
 }
