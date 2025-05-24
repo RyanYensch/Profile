@@ -3,7 +3,7 @@ document.querySelectorAll(".toggle-group").forEach(group => {
         const target = group.dataset.target;
         const dir = group.dataset.dir;
         const panel = document.getElementById(target);
-        const panelHeight = panel.getBoundingClientRect().panelHeight;
+        const panelHeight = panel.getBoundingClientRect().height;
         const offset = (dir == "up") ? -panelHeight : panelHeight;
 
         panel.classList.toggle("open")
