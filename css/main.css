@@ -64,6 +64,14 @@ html, body {
     left: 75%;
 }
 
+.toggle-group.top {
+    top: 10%;
+}
+
+.toggle-group.bottom {
+    top: 90%;
+}
+
 
 .magnet {
     width: 2.5rem;
@@ -95,7 +103,9 @@ html, body {
     transform: translateX(-50%);
     width: calc(50% - 4rem);
     left: 50%;
-    max-width: 400px;
+    max-width: 45%;
+    max-height: 85%;
+    overflow: hidden;
     background: #fafafa;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -129,4 +139,74 @@ html, body {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
+}
+
+.panel h2 {
+    text-align: center;
+}
+
+.driver-card {
+    display: inline-block;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.driver-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+.driver-card p {
+    margin: 0.25rem 0;
+}
+
+.panel img {
+    display: block;
+    max-width: 80%;
+    max-height: 20%;
+    object-fit: cover;
+}
+
+#panel-links {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 85vh;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding-bottom: 5%;
+}
+
+#panel-links .link-images {
+    padding-left: 20%;
+    padding-right: 20%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    padding-top: 5%;
+    overflow: hidden;
+}
+
+#panel-links .link-images img {
+    width: 60%;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+    justify-self: start;
+    max-height: none;
+}
+
+#panel-links .link-images img:nth-child(even) {
+    justify-self: end;
+}
+
+#panel-links .links-footer {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 1rem;
 }

@@ -16,4 +16,32 @@ window.addEventListener('DOMContentLoaded', () => {
             
         });
     });
+
+
+    async function fetchStandings() {
+        const res = await fetch("https://f1api.dev/api/current/drivers-championship")
+        if (!res.ok) throw new Error(`API Error: ${res.status}`);
+        const json = await res.json();
+        return json.drivers_championship;
+    }
+
+    function updateDriverCard(driverData, prefix) {
+        document.getElementById(`${prefix}-position`).textContent = driverData.position;
+        document.getElementById(`${prefix}-points`).textContent = driverData.points;
+        document.getElementById(`${prefix}-wins`).textContent = driverData.wins;
+    }
+
+    async function refreshStats() {
+        try {
+            const standings = await fetchStandings();
+            const verstappen = standings.find(d => d.driverId === "max_verstappen");
+            if (verstappen) updateDriverCard(verstappen, "verstappen");
+        } catch (error) {
+            console.error("Failed to load F1 stats:", error);
+        }
+    }
+
+    refreshStats();
+    setInterval(refreshStats, 60_000);
+
 });
