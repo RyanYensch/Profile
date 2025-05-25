@@ -31,11 +31,38 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById(`${prefix}-wins`).textContent = driverData.wins;
     }
 
+    async function fetchLeetCodeStats() {
+        const res = await fetch("https://leetcode-stats-api.herokuapp.com/RyanYensch")
+        if (!res.ok) throw new Error(`API Error: ${res.status}`);
+        const json = await res.json();
+        return json;
+    }
+
+    function updateLeetcodeStats(data, prefix) {
+       document.getElementById(`${prefix}-solved`).textContent = data.totalSolved;
+       document.getElementById(`${prefix}-questions`).textContent = data.totalQuestions;
+       document.getElementById(`${prefix}-easy-solved`).textContent = data.easySolved;
+       document.getElementById(`${prefix}-easy-questions`).textContent = data.totalEasy;
+       document.getElementById(`${prefix}-medium-solved`).textContent = data.mediumSolved;
+       document.getElementById(`${prefix}-medium-questions`).textContent = data.totalMedium;
+       document.getElementById(`${prefix}-hard-solved`).textContent = data.hardSolved;
+       document.getElementById(`${prefix}-hard-questions`).textContent = data.totalHard;
+       
+
+    }
+
     async function refreshStats() {
         try {
             const standings = await fetchStandings();
             const verstappen = standings.find(d => d.driverId === "max_verstappen");
             if (verstappen) updateDriverCard(verstappen, "verstappen");
+        } catch (error) {
+            console.error("Failed to load F1 stats:", error);
+        }
+
+        try {
+            const leetCodeStats = await fetchLeetCodeStats();
+            updateLeetcodeStats(leetCodeStats, "leetcode");
         } catch (error) {
             console.error("Failed to load F1 stats:", error);
         }
