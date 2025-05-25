@@ -138,3 +138,24 @@ html, body {
     opacity: 1;
     pointer-events: auto;
 }
+
+.panel h2 {
+    text-align: center;
+}
+
+.driver-card {
+    display: inline-block;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.driver-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+.driver-card p {
+    margin: 0.25rem 0;
+}
