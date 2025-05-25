@@ -64,6 +64,14 @@ html, body {
     left: 75%;
 }
 
+.toggle-group.top {
+    top: 10%;
+}
+
+.toggle-group.bottom {
+    top: 90%;
+}
+
 
 .magnet {
     width: 2.5rem;
