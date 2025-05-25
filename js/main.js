@@ -44,4 +44,12 @@ window.addEventListener('DOMContentLoaded', () => {
     refreshStats();
     setInterval(refreshStats, 60_000);
 
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const sideMenu = document.getElementById("side-menu");
+
+    menuToggle.addEventListener("click", () => {
+        sideMenu.classList.toggle("open");
+        menuToggle.classList.toggle("open");
+    });
 });

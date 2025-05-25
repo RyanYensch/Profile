@@ -14,11 +14,19 @@ html, body {
 
 .home-link {
     position: fixed;
-    top: 1rem;
-    left: 1rem;
-    text-decoration: none;
-    font-size: 0.9rem;
+    top: 1.25rem;
+    left: 4rem;
+    z-index: 999;
+    display: inline-block;
 }
+
+.home-link img {
+    width: 3.25rem;
+    height: auto;
+    display: block;
+    pointer-events: none;
+}
+
 
 
 .container {
@@ -33,14 +41,6 @@ html, body {
     height: 100vh;
     scroll-snap-align: start;
     overflow: hidden;
-}
-
-.home-link {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    text-decoration: none;
-    font-size: 0.9rem;
 }
 
 .toggle-group {
@@ -209,4 +209,52 @@ html, body {
     font-size: 2rem;
     font-weight: 500;
     margin-top: 1rem;
+}
+
+.hamburger-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    user-select: none;
+    transition: transform 0.3s ease, left 0.3s ease;
+}
+
+.hamburger-button.open {
+    left: 220px;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -220px;
+    width: 200px;
+    height: 100%;
+    background: #fafafa;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 2rem 1rem;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side-menu li + li{
+    margin-top: 1rem;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
 }
