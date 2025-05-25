@@ -16,9 +16,17 @@ html, body {
     position: fixed;
     top: 1.25rem;
     left: 4rem;
-    text-decoration: none;
-    font-size: 0.9rem;
+    z-index: 999;
+    display: inline-block;
 }
+
+.home-link img {
+    width: 3.25rem;
+    height: auto;
+    display: block;
+    pointer-events: none;
+}
+
 
 
 .container {
@@ -33,14 +41,6 @@ html, body {
     height: 100vh;
     scroll-snap-align: start;
     overflow: hidden;
-}
-
-.home-link {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    text-decoration: none;
-    font-size: 0.9rem;
 }
 
 .toggle-group {
