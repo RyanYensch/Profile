@@ -71,27 +71,28 @@ html {
     top: 0;
     left: 50%;
     transform-origin: top center;
-  }
+    z-index: 999;
+}
   
-  .pendulum::before {
-    content: "";
-    display: block;
-    width: 2px;
-    height: var(--rope-length);
-    background: #333;
-    margin: 0 auto;
-  }
-  
-  #magnet {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 3rem;
-    cursor: grab;
-    user-select: none;
-  }
+.pendulum::before {
+content: "";
+display: block;
+width: 2px;
+height: var(--rope-length);
+background: #333;
+margin: 0 auto;
+}
 
-  #magnet:active {
-    cursor: grabbing;
-  }
+#magnet {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+font-size: 3rem;
+cursor: grab;
+user-select: none;
+}
+
+#magnet:active {
+cursor: grabbing;
+}
   
