@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mouseup", endDrag);
     document.addEventListener("mousemove", doDrag);
 
+    magnet.addEventListener("mousedown", () => {
+        document.querySelectorAll(".hint").forEach(el => el.remove());
+    });
+
     let angle = 0;
     let vel = 0;
     let length = 200;

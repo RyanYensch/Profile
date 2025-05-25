@@ -95,6 +95,7 @@ html, body {
 .label {
     font-size: 1rem;
     user-select: none;
+    cursor: pointer;
 }
 
 
@@ -257,4 +258,19 @@ html, body {
     text-decoration: none;
     color: #333;
     font-weight: 500;
+}
+
+
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.magnet.pulse {
+    animation: pulse 2s infinite;
 }

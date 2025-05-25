@@ -1,4 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
+
+    document.querySelectorAll(".magnet").forEach(mag => {
+        mag.classList.add("pulse");
+        setTimeout(() => mag.classList.remove("pulse"), 6_000);
+    });
+
     document.querySelectorAll(".toggle-group").forEach(group => {
         group.addEventListener("click", () => {
             const target = group.dataset.target;
