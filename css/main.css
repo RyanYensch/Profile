@@ -103,7 +103,7 @@ html, body {
     transform: translateX(-50%);
     width: calc(50% - 4rem);
     left: 50%;
-    max-width: 400px;
+    max-width: 45%;
     background: #fafafa;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -158,4 +158,9 @@ html, body {
 
 .driver-card p {
     margin: 0.25rem 0;
+}
+
+.panel img {
+    max-width: 90%;
+    margin: 5%;
 }
