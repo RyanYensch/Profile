@@ -166,6 +166,44 @@ html, body {
     display: block;
     max-width: 80%;
     max-height: 20%;
-    margin: 1rem auto;
     object-fit: cover;
+}
+
+#panel-links {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 85vh;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding-bottom: 2%;
+}
+
+#panel-links .link-images {
+    padding-top: 5%;
+    display: grid;
+    grid-template-rows: repeat(4, 20%);
+    row-gap: 1rem;
+    overflow: hidden;
+}
+
+#panel-links .link-images img {
+    max-height: none;
+    width: 30%;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+    justify-self: start;
+}
+
+#panel-links .link-images img:nth-child(even) {
+    justify-self: end;
+}
+
+#panel-links .links-footer {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 500;
+    margin-top: 1rem;
 }
