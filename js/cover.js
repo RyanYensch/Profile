@@ -10,16 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let angle = 0;
     let vel = 0;
-    const length = 200;
+    let length = 200;
+    const minLength = 50;
+    const maxLength = 1000;
+
     const damping = 0.995;
-    const gravity = 0.0005;
+    const gravity = 0.05;
 
     let dragging = false;
-    let lastX, lastTime;
+    let lastTime;
+
+    pendulum.style.setProperty("--rope-length", `${length}px`);
+    magnet.style.top = `${length}px`;
 
     function animate() {
         if (!dragging) {
-            const accel = -gravity * Math.sin(angle)
+            const accel = -gravity/length * Math.sin(angle)
             vel += accel;
             vel *= damping;
             angle += vel;
@@ -75,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startDrag(event) {
         dragging = true;
-        lastX = event.clientX;
         lastTime = performance.now();
         vel = 0;
     }
@@ -87,14 +92,26 @@ document.addEventListener("DOMContentLoaded", () => {
     function doDrag(event) {
         if (!dragging) return;
 
-        const diffX = event.clientX - lastX;
-        angle += -diffX / length;
+        const pivotRect = pendulum.getBoundingClientRect();
+        const pivotX = pivotRect.left + pivotRect.width / 2;
+        const pivotY = pivotRect.top;
+
+        const diffX = -event.clientX + pivotX;
+        const diffY = event.clientY - pivotY;
+
+        length = Math.hypot(diffX, diffY);
+        length = Math.max(minLength, Math.min(maxLength, length));
+
+        pendulum.style.setProperty("--rope-length", `${length}px`);
+        magnet.style.top = `${length}px`
+
+        angle = Math.atan2(diffX, diffY);
         pendulum.style.transform = `rotate(${angle}rad)`;
 
         const now = performance.now();
-        vel = (event.clientX - lastX) / (now - lastTime);
-        vel *= -4 / length;
-        lastX = event.clientX;
+        const diffT = (now - lastTime) / 1000;
+        vel = (angle - lastAngle) / diffT;
+        lastAngle = angle;
         lastTime = now;
     }
 
