@@ -95,6 +95,8 @@ html {
     cursor: grab;
     user-select: none;
     z-index: 999;
+
+    transform: rotate(180deg) translateX(50%);
 }
 
 #magnet img {
