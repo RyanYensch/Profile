@@ -1,3 +1,15 @@
+
+:root {
+    --bg-colour: #121212;
+    --text-colour: #e0e0e0;
+    --panel-bg: #1e1e1e;
+    --hint-colour: #bbbbbb;
+    --border-colour: #444444;
+    --shadow-colour: rgba(0,0,0,0.7);
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +21,11 @@ html {
     font-family: sans-serif;
 }
 
+body {
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+}
+
 
 #cover-page {
     height: 100vh;
@@ -16,7 +33,7 @@ html {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: "#fafafa";
+    background: var(--bg-colour);
 }
 
 .cover-content h1 {
@@ -33,6 +50,10 @@ html {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     cursor: pointer;
+    background-color: var(--panel-bg);
+    color: var(--text-colour);
+    border: 1px solid var(--border-colour);
+    border-radius: 0.25rem;
 }
 
 #magnet {
@@ -56,7 +77,7 @@ html {
     height: 70vh;
     margin: auto;
     overflow: visible;
-    background: "#fafafa";
+    background: var(--bg-colour);
 }
 
 .collectable {
@@ -64,6 +85,7 @@ html {
     font-size: 2rem;
     user-select: none;
     transition: all 0.6s ease-in-out;
+    color: var(--text-colour);
 }
 
 .pendulum {
@@ -80,7 +102,7 @@ html {
     display: block;
     width: 2px;
     height: var(--rope-length);
-    background: #333;
+    background: var(--hint-colour);
     margin: 0 auto;
 }
 
@@ -114,7 +136,7 @@ html {
 
 .hint {
     font-size: 1rem;
-    color: #555;
+    color: var(--hint-colour);
     margin-bottom: 0.5rem;
     animation: fade-in-out 4s ease-in-out infinite;
 }

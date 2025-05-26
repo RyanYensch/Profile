@@ -1,3 +1,13 @@
+:root {
+    --bg-colour: #121212;
+    --text-colour: #e0e0e0;
+    --panel-bg: #1e1e1e;
+    --hint-colour: #bbbbbb;
+    --border-colour: #444444;
+    --shadow-colour: rgba(0,0,0,0.7);
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +20,8 @@ html, body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: sans-serif;
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
 }
 
 .home-link {
@@ -41,6 +53,8 @@ html, body {
     height: 100vh;
     scroll-snap-align: start;
     overflow: hidden;
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
 }
 
 .toggle-group {
@@ -78,7 +92,7 @@ html, body {
     height: 2.5rem;
     display: flex;
     font-size: 2rem;
-    background: #fafafa;
+    background: var(--bg-colour);
     border-radius: 50%;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     cursor: pointer;
@@ -115,10 +129,11 @@ html, body {
     max-width: 45%;
     max-height: 85%;
     overflow: hidden;
-    background: #fafafa;
+    background: var(--panel-bg);
+    color: var(--text-colour);
     border-radius: 0.5rem;
     padding: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px var(--shadow-colour);
     transition: transform 0.5s ease, opacity 0.3s ease;
     pointer-events: none;
     opacity: 0;
@@ -152,6 +167,7 @@ html, body {
 
 .panel h2 {
     text-align: center;
+    color: var(--text-colour);
 }
 
 .driver-card {
@@ -159,8 +175,11 @@ html, body {
     width: 100%;
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-colour);
+    box-shadow: 0 2px 6px var(--shadow-colour);
     text-align: center;
+    background: var(--panel-bg);
+    color: var(--text-colour);
 }
 
 .driver-card h4 {
@@ -183,9 +202,9 @@ html, body {
     grid-template-rows: auto 1fr auto;
     height: 85vh;
     padding: 1rem;
-    background: #fafafa;
+    background: var(--panel-bg);
     border-radius: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px var(--shadow-colour);
     padding-bottom: 5%;
 }
 
@@ -220,6 +239,7 @@ html, body {
     font-size: 2rem;
     font-weight: 500;
     margin-top: 1rem;
+    color: var(--text-colour);
 }
 
 .hamburger-button {
@@ -253,8 +273,8 @@ html, body {
     left: -220px;
     width: 200px;
     height: 100%;
-    background: #fafafa;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    background: var(--panel-bg);
+    box-shadow: 2px 0 8px var(--shadow-colour);
     transition: left 0.3s ease;
     z-index: 1000;
     padding: 2rem 1rem;
@@ -272,14 +292,18 @@ html, body {
 
 .side-menu li + li{
     margin-top: 1rem;
+    color: var(--hint-colour);
 }
 
 .side-menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-colour);
     font-weight: 500;
 }
 
+#slide-1, #slide-2 {
+    background-color: var(--bg-colour);
+}
 
 
 @keyframes pulse {
