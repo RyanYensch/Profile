@@ -190,6 +190,7 @@ html, body {
     gap: 1rem;
     padding-top: 5%;
     overflow: hidden;
+    pointer-events: none;
 }
 
 #panel-links .link-images a {
@@ -199,6 +200,7 @@ html, body {
     align-self: center;
     justify-self: start;
     max-height: none;
+    pointer-events: all;
 }
 
 #panel-links .link-images a:nth-child(even) {
