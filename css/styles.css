@@ -86,11 +86,23 @@ html {
 
 #magnet {
     position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    font-size: 3rem;
+    transform: translateX(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+
     cursor: grab;
     user-select: none;
+    z-index: 999;
+}
+
+#magnet img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
 }
 
 #magnet:active {
