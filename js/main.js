@@ -1,8 +1,17 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    document.querySelectorAll(".magnet").forEach(mag => {
+    const magnets = document.querySelectorAll(".magnet");
+
+    function stopPulse() {
+        magnets.forEach(mag => {
+            mag.classList.remove("pulse");
+            mag.removeEventListener("mousedown", stopPulse);
+        });
+    }
+
+    magnets.forEach(mag => {
         mag.classList.add("pulse");
-        setTimeout(() => mag.classList.remove("pulse"), 6_000);
+        mag.addEventListener("mousedown", stopPulse);
     });
 
     document.querySelectorAll(".toggle-group").forEach(group => {
