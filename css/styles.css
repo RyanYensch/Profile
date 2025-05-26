@@ -150,3 +150,20 @@ body {
         opacity: 1;
     }
 }
+
+
+.neon-text.blue {
+    text-shadow:
+        0 0 7px #00e5ff,
+        0 0 21px #00b8d9,
+        0 0 102px #0081a3,
+        0 0 151px #0081a3;
+}
+
+.neon-text.red {
+    text-shadow:
+        0 0 7px #ff4d4d,
+        0 0 21px #d92f2f,
+        0 0 102px #a30000,
+        0 0 151px #a30000;
+}
