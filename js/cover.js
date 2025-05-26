@@ -12,11 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".hint").forEach(el => el.style.visibility = "hidden");
     });
 
+    const pageHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.documentElement.clientHeight
+    );
+
     let angle = 0;
     let vel = 0;
     let length = 200;
     const minLength = 50;
-    const maxLength = 1000;
+    const maxLength = pageHeight * 0.7;
 
     const damping = 0.995;
     const gravity = 0.05;
