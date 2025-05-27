@@ -16,6 +16,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll(".toggle-group").forEach(group => {
         group.addEventListener("click", () => {
+            const hint = group.querySelector(".hint");
+            if (hint) hint.remove();
+
+
             const target = group.dataset.target;
             const dir = group.dataset.dir;
             const panel = document.getElementById(target);
