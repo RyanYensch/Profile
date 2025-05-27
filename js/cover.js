@@ -127,5 +127,18 @@ document.addEventListener("DOMContentLoaded", () => {
         lastTime = now;
     }
 
+
+    const barLink = document.querySelector(".bar-magnet");
+    if (!barLink) return;
+
+    barLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        this.classList.add("flipped");
+
+        setTimeout(() => {
+            window.location.href = this.href;}, 600);
+    });
+
+
     requestAnimationFrame(animate);
 });
