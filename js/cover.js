@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mousemove", doDrag);
 
     magnet.addEventListener("mousedown", () => {
-        document.querySelectorAll(".hint").forEach(el => el.style.visibility = "hidden");
+        document.querySelectorAll(".hint-pendulum").forEach(el => el.style.visibility = "hidden");
     });
 
     const pageHeight = Math.max(
