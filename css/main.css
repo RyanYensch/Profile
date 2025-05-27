@@ -60,8 +60,9 @@ html, body {
 .toggle-group {
     position: absolute;
     top: 50%;
+    left: 25%;
     --offset: 0px;
-    transform: translateY(calc(-50% + var(--offset)));
+    transform: translate(-50%, calc(-50% + var(--offset)));
     transition: transform 0.5s ease;
     display: flex;
     flex-direction: column;
