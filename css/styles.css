@@ -188,3 +188,29 @@ body {
     transform: rotateY(180deg);
 }
 
+.enter-site {
+    position: relative;
+    display: inline-block;
+}
+
+.hint-enter {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.25rem;
+    background: var(--panel-bg);
+    color: var(--hint-colour);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.enter-site:hover .hint-enter {
+    visibility: visible;
+    opacity: 1;
+}
