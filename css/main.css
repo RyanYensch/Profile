@@ -60,8 +60,9 @@ html, body {
 .toggle-group {
     position: absolute;
     top: 50%;
+    left: 25%;
     --offset: 0px;
-    transform: translateY(calc(-50% + var(--offset)));
+    transform: translate(-50%, calc(-50% + var(--offset)));
     transition: transform 0.5s ease;
     display: flex;
     flex-direction: column;
@@ -84,6 +85,29 @@ html, body {
 
 .toggle-group.bottom {
     top: 90%;
+}
+
+.hint {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.25rem;
+    background: var(--panel-bg);
+    color: var(--hint-colour);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 11;
+}
+
+.toggle-group:hover .hint {
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -195,6 +219,7 @@ html, body {
     max-width: 80%;
     max-height: 20%;
     object-fit: cover;
+    justify-self: center;
 }
 
 #panel-links {
