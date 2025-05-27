@@ -194,16 +194,21 @@ html, body {
     color: var(--text-colour);
 }
 
+.panel h3 {
+    padding-bottom: 1%;
+}
+
 .driver-card {
     display: inline-block;
     width: 100%;
-    margin: 1rem;
-    padding: 1rem;
+    /* margin: 1rem; */
+    padding: 1rem; 
     border: 1px solid var(--border-colour);
     box-shadow: 0 2px 6px var(--shadow-colour);
     text-align: center;
     background: var(--panel-bg);
     color: var(--text-colour);
+    justify-self: center;
 }
 
 .driver-card h4 {
@@ -225,7 +230,7 @@ html, body {
 #panel-links {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: 85vh;
+    height: 75vh;
     padding: 1rem;
     background: var(--panel-bg);
     border-radius: 0.5rem;
@@ -342,4 +347,13 @@ html, body {
 
 .magnet.pulse {
     animation: pulse 2s infinite;
+}
+
+
+.dot-points {
+    padding-left: 5%;
+}
+
+.dot-points li {
+    padding-bottom: 1%;
 }
