@@ -344,8 +344,8 @@ html, body {
 }
 
 #slide-1, #slide-2 {
-    background-color: var(--bg-colour);
     background-image: url("../images/galaxyBG.png");
+    background-size: 100%;
 }
 
 
