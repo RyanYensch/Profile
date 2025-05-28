@@ -1,6 +1,6 @@
 
 :root {
-    --bg-colour: #121212;
+    --bg-colour: #000102;
     --text-colour: #e0e0e0;
     --panel-bg: #1e1e1e;
     --hint-colour: #bbbbbb;
@@ -36,7 +36,8 @@ body {
     text-align: center;
     background: var(--bg-colour);
     background-image: url("../images/moonSpace.jpg");
-    background-size: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .cover-content h1 {
